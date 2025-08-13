@@ -13,8 +13,8 @@ public class FloatDoubleExample {
 		double var5 = 0.1234567890123456789F;	// var5 : 0.12345679104328156
 		double var6 = 3e6;	// var6 : 3000000.0
 		float var7 = 3e6f;	// var7 : 3000000.0
-		float var8 = 2e-3f;	// var7 : 3000000.0
-		double var9 = 2e-3;	// var7 : 3000000.0
+		float var8 = 2e-3f;	// var8 : 0.002
+		double var9 = 2e-3;	// var9 : 0.002
 		
 		System.out.println("var1 : " + var1);
 		System.out.println("var2 : " + var2);
