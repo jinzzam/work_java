@@ -12,5 +12,6 @@ public class DivAndRemains {
 		}else {
 			System.out.println("no");
 		}
+		sc.close();
 	}
 }
