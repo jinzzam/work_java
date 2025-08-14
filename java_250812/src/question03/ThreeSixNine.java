@@ -22,6 +22,8 @@ public class ThreeSixNine {
 			System.out.println("짝");
 		}else if(count==2) {
 			System.out.println("짝짝");
+		}else {
+			System.out.println("없음");
 		}
 		
 		sc.close();
