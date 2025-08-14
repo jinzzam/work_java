@@ -17,6 +17,6 @@ public class Rectangle {
 			System.out.println("없음");
 			
 		}
-		
+		sc.close();
 	}
 }
