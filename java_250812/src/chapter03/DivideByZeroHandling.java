@@ -28,7 +28,7 @@ public class DivideByZeroHandling {
 			} catch (Exception e) {
 				System.out.println("0으로 나눌 수 없습니다. 다시 입력하세요.");
 			}
-
+			
 		}
 
 		sc.close();
