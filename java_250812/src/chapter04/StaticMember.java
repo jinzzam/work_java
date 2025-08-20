@@ -13,7 +13,9 @@ class CurrencyConverter{
 	private static double rate;
 //	jsp, sping 할 때도 많이 사용
 //	메소드를 사용해서 멤버변수를 접근해서 사용(직접적인 값 수정을 막음->보안)
-//	getter(ex.getAbc: 값을 가져올때), setter(ex.setAbc : 값을 지정할 때) 메소드 사용해서 멤버변수 사용
+//	getter(ex.getAbc: 값을 가져올때)
+//	setter(ex.setAbc : 값을 지정할 때)
+//	메소드 사용해서 멤버변수 사용
 	public static void setRate(double rate) {
 //		매개변수를 static(클래스)멤버로 저장
 		CurrencyConverter.rate = rate;
