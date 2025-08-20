@@ -15,8 +15,8 @@ public class Book2 {
 //		this로 생성자 호출 시 가장 첫줄에 와야함
 		this(title, "작자미상");		
 		System.out.println("생성자2 호출됨");
-//		title = t;
-//		author = "작자미상";
+//		this.title = title;
+//		this.author = "작자미상";
 	}
 	
 	public Book2() {

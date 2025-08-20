@@ -10,14 +10,14 @@ public class ThrowsExample {
 			System.out.println("클래스를 못 찾음 ㅠ.ㅠ");
 		}
 	}
-	
+
 //	throws : 메소드 호출한 곳으로 예외처리를 넘김
 	public static void findClass() throws ClassNotFoundException {
 //	public static void findClass() {
 //			Class.forName("java.lang.String");
 			Class.forName("java.lang.String2");
 //		try {
-////		Class.forName("java.lang.String");
+////			Class.forName("java.lang.String");
 //			Class.forName("java.lang.String2");
 //			System.out.println("클래스를 찾음2 !!!");
 //		} catch (ClassNotFoundException e) {
