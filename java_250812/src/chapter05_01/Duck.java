@@ -9,5 +9,4 @@ public class Duck extends Bird implements Swim2, Fly{
 	public void fly() {
 		System.out.println("Ducks fly");
 	}
-
 }
