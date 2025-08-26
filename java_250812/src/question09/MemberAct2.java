@@ -6,30 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MemberAct {
-	static List<String> memberInfo = new ArrayList<>();
-	static Map<Integer, List<String>> member = new HashMap<Integer, List<String>>();
-
-	public List<String> getMemberInfo() {
-		return memberInfo;
-	}
-
-	public void setMemberInfo(List<String> memberInfo) {
-		this.memberInfo = memberInfo;
-	}
-
-	public Map<Integer, List<String>> getMember() {
-		return member;
-	}
-
-	public static int getMemberNumber() {
-		return member.size();
-	}
-
-	public void setMember(Map<Integer, List<String>> member) {
-		this.member = member;
-	}
-
+public class MemberAct2 {
+	static List<String> memberInfoList = new ArrayList<>();
+	static Map<Integer, List<String>> memberMap = new HashMap<Integer, List<String>>();
 	static Scanner sc = new Scanner(System.in);
 
 	static int startProgram() {
@@ -53,19 +32,19 @@ public class MemberAct {
 	static void insert() {
 		System.out.print("가입할 회원 수를 입력하세요 >>");
 		int members = sc.nextInt();
-		int memberNumber = MemberAct.getMemberNumber();
+		int memberNumber = memberMap.size();
 		for (int i = 0; i < members; i++) {
 			System.out.println("회원 정보를 입력하세요.");
 			System.out.print("회원 아이디 : ");
 			String id = sc.next();
-			MemberAct.memberInfo.add(id);
+			MemberAct2.memberInfoList.add(id);
 			System.out.print("회원 이름 : ");
 			String name = sc.next();
-			MemberAct.memberInfo.add(name);
+			MemberAct2.memberInfoList.add(name);
 			System.out.print("회원 지역 : ");
 			String local = sc.next();
-			MemberAct.memberInfo.add(local);
-			MemberAct.member.put(memberNumber, memberInfo);
+			MemberAct2.memberInfoList.add(local);
+			MemberAct2.memberMap.put(memberNumber+1, memberInfoList);
 			memberNumber += 1;
 		}
 	}
@@ -73,43 +52,53 @@ public class MemberAct {
 	static void delete() {
 		System.out.println("삭제할 회원번호를 입력하세요.");
 		int memberNo = sc.nextInt();
-		List<String> member = MemberAct.member.get(memberNo);
-		if (member != null) {
-
+		for (Map.Entry<Integer, List<String>> entry : memberMap.entrySet()) {
+			Integer key = entry.getKey();
+			List<String> val = entry.getValue();
+			if (key == memberNo) {
+				System.out.println("회원 번호 : " + key);
+				System.out.println("회원 아이디 : " + val.get(0));
+				System.out.println("회원 이름: " + val.get(1));
+				System.out.println("회원 지역 : " + val.get(2));
+				memberMap.remove(key);
+			} else {
+				System.out.println("회원번호가 존재하지 않습니다.");
+			}
 		}
 	}
 
 	static void veiw() {
+		System.out.println("등록된 회원 수는 " + memberMap.size() + "입니다.");
+		for (Map.Entry<Integer, List<String>> entry : memberMap.entrySet()) {
+			Integer key = entry.getKey();
+			List<String> val = entry.getValue();
+			System.out.println("회원 번호 : " + key);
+			System.out.println("회원 아이디 : " + val.get(0));
+			System.out.println("회원 이름: " + val.get(1));
+			System.out.println("회원 지역 : " + val.get(2));
+		}
 
 	}
 
 	public static void main(String[] args) {
 
-		while (true) {
-			int firstChoice = MemberAct.startProgram();
-			if (firstChoice == 2) {
+		while (startProgram() == 1) {
+			int secondChoice = memberInfoManagement();
+			switch (secondChoice) {
+			case 11:
+				insert();
 				break;
-			} else {
-				int secondChoice = MemberAct.memberInfoManagement();
-				switch (secondChoice) {
-				case 11:
-					MemberAct.insert();
-					break;
-				case 22:
-					MemberAct.delete();
-					break;
-				case 33:
-					MemberAct.veiw();
-					break;
-				case 0:
-					MemberAct.startProgram();
-
-				default:
-					break;
-				}
+			case 22:
+				delete();
+				veiw();
+				break;
+			case 33:
+				veiw();
+				break;
+			case 0:
+				memberInfoManagement();
 			}
 		}
-
 		sc.close();
 	}
 }
