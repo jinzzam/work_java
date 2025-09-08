@@ -30,9 +30,9 @@ public class LifeCycle extends HttpServlet {
 	}
 	
 	@Override
-//	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-//		System.out.println("service 요청 될 때마다 호출됨: " + serviceCount++);
-//	}
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		System.out.println("service 요청 될 때마다 호출됨: " + serviceCount++);
+	}
 	
 //	service 메소드가 있으면 호출 안 됨
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
