@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>
-		<a href="#">공지사항</a>|
-		<a href="#">게시판</a>|
-		<a href="#">FAQ</a>|
-		<a href="#">QnA</a>
-	</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+	<a href="?pageChange=info_board.jsp">게시판</a>|
+	<a href="?pageChange=info_notice.jsp">공지사항</a>|
+	<a href="?pageChange=info_faq.jsp">FAQ</a>|
+	<a href="?pageChange=info_qna.jsp">QnA</a>
 </body>
 </html>

@@ -5,17 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
 	<p>
-		<a href="info_main.jsp" name="Java">Java</a><br>
-		<a href="info_main.jsp" name="JSP">JSP</a><br>
-		<a href="info_main.jsp">Oracle</a><br>
-		<a href="info_main.jsp">HTML</a><br>
-		<a href="info_main.jsp">CSS</a><br>
+		<a href="?pageChange=info_java.jsp">Java</a><br>
+		<a href="?pageChange=info_jsp.jsp">JSP</a><br>
+		<a href="?pageChange=info_oracle.jsp">Oracle</a><br>
+		<a href="?pageChange=info_html.jsp">HTML</a><br>
+		<a href="?pageChange=info_css.jsp">CSS</a><br>
 	</p>
 </body>
-
-
 </html>
