@@ -163,7 +163,19 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
       <Context docBase="servlet_250905" path="/servlet_250905" reloadable="true" source="org.eclipse.jst.jee.server:servlet_250905"/>
-      <Context docBase="jsp_250905" path="/jsp_250905" reloadable="true" source="org.eclipse.jst.jee.server:jsp_250905"/></Host>
+      <Context docBase="jsp_250905" path="/jsp_250905" reloadable="true" source="org.eclipse.jst.jee.server:jsp_250905">
+      <Resource name="jdbc/oracle" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+              username="scott" password="tiger" maxTotal="100" maxIdle="30"
+              maxWaitMillis="10000"/>
+      <Resource name="jdbc/mysql" auth="Container"
+              type="javax.sql.DataSource" driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/jspdb"
+              username="bts" password="1234" maxTotal="100" maxIdle="30"
+              maxWaitMillis="10000"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>
