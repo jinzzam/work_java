@@ -66,7 +66,7 @@
 							if(n_class == 2) {
 // 								out.print("일반회원");
 								sclass="교수님";
-								}
+							}
 							out.print(sclass);
 						%>
 					 </td>
