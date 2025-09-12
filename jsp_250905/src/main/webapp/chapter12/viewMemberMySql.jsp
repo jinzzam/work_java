@@ -14,9 +14,9 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	
-	String url="jdbc:oracle:thin:@localhost:1521:xe";
-	String user = "scott";
-	String password = "tiger";
+	String url="jdbc:mysql://localhost:3306/jspdb";
+	String user = "bts";
+	String password = "1234";
 	String sql= "select id, name, class, tel from member2";
 	String sclass = "일반회원";
 %>
@@ -64,11 +64,12 @@
 						<% 
 							int n_class = rs.getInt("class");
 							if(n_class == 2) {
-// 								out.print("일반회원");
 								sclass="교수님";
+							}else{
+								sclass="일반회원";
 							}
-							out.print(sclass);
 						%>
+						<%= sclass %>
 					 </td>
 					<td><%= rs.getString("tel") %> </td>
 				</tr>
