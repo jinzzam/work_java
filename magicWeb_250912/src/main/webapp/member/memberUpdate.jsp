@@ -1,14 +1,14 @@
 <%@page import="magic.member.MemberDBBean"%>
+<%@page import="magic.member.MemberDBBean02"%>
 <%@page import="magic.member.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 %>
-<% 
-	System.out.println("@#$@#$1111 : " + session.getAttribute("uid"));
-	out.print("@#$@#$2222 : " + session.getAttribute("uid"));
-	String uid = (String) session.getAttribute("uid");
+<%
+// 	System.out.println("@#$@#$session.getAttribute(\"mem_uid\") : " + session.getAttribute("mem_uid"));
+	String uid = (String) session.getAttribute("mem_uid");
 	MemberDBBean manager = MemberDBBean.getInstance();
 	MemberBean member = manager.getMember(uid);
 %>

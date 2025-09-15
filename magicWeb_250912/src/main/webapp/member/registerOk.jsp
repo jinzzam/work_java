@@ -1,4 +1,4 @@
-<%@page import="magic.member.MemberDBBean"%>
+<%@page import="magic.member.MemberDBBean02"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -7,9 +7,7 @@
 <jsp:useBean class="magic.member.MemberBean" id="mb"></jsp:useBean>
 <jsp:setProperty property="*" name="mb"></jsp:setProperty>
 
-<%!
-	MemberDBBean manager = MemberDBBean.getInstance();
-%>
+<%!MemberDBBean02 manager = MemberDBBean02.getInstance();%>
 	<%
 // 		mb.setMem_uid(request.getParameter(mb.getMem_uid()));
 // 		mb.setMem_pwd(request.getParameter(mb.getMem_pwd()));
@@ -21,8 +19,6 @@
 			%>
 			<script>
 			alert("중복되는 아이디가 존재합니다.");	
-			reg_frm.mem_uid.value="";
-			reg_frm.mem_uid.focus();
 			history.back();	//바로 직전 화면으로
 			</script>
 			<%

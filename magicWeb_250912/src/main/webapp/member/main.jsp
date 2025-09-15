@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%
- 	if(session.getAttribute("mem_uid") == null){
- 	 %>
- 	 	<jsp:forward page="login.jsp"></jsp:forward>
- 	 <%
- 	}
- %>
 <%
-	request.setCharacterEncoding("UTF-8");
+	if(session.getAttribute("mem_uid") == null){
+		%>
+			<jsp:forward page="login.jsp"></jsp:forward>
+		<%
+	}
 %>
-<jsp:useBean class="magic.member.MemberBean" id="mb"></jsp:useBean>
-<!DOCTYPE html>
+<%
+	String uid = (String) session.getAttribute("mem_uid");
+	String name = (String) session.getAttribute("mem_name");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,10 +20,6 @@
 	<table>
 		<form method="post" action="logout.jsp" name="main_frm">
 			<tr>
-			<%
-				String uid = (String) session.getAttribute("mem_uid");
-				String name  = (String) session.getAttribute("mem_name");
-			%>
 				안녕하세요. <%= name %>(<%= uid %>)님
 			</tr>
 			<tr>
