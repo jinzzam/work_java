@@ -68,6 +68,7 @@ public class MemberDBBean {
 			pstmt.setString(2, member.getMem_email());
 			pstmt.setString(3, member.getMem_address());
 			pstmt.setString(4, member.getMem_uid());
+			System.out.println("DBBean : getMem_uid() : " + member.getMem_uid());
 			re = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -160,7 +161,7 @@ public class MemberDBBean {
 		int re = -1; // 초기값 -1
 //		String db_mem_pwd = "";
 		String sql = "select mem_uid, mem_pwd, mem_name, mem_email, mem_address from memberT where mem_uid=?";
-		MemberBean member = new MemberBean();
+		MemberBean member=null;
 		
 		try {
 			conn = getConnection();
@@ -169,6 +170,7 @@ public class MemberDBBean {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) { //아이디가 일치하는 로우 존재
+				member = new MemberBean();
 				member.setMem_uid(id);
 				member.setMem_pwd(rs.getString("mem_pwd"));
 				member.setMem_name(rs.getString("mem_name"));
@@ -189,9 +191,6 @@ public class MemberDBBean {
 				e2.printStackTrace();
 			}
 		}
-		System.out.println("@#$@#$ id: " + member.getMem_uid());
-		System.out.println("@#$@#$ name: " + member.getMem_name());
 		return member;
-	
 	}
 }

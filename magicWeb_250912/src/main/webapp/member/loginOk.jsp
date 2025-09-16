@@ -7,15 +7,7 @@
 <%
 request.setCharacterEncoding("UTF-8");
 %>
-<jsp:useBean class="magic.member.MemberBean" id="member"></jsp:useBean>
-<jsp:setProperty property="*" name="member"></jsp:setProperty>
 <%
-// 	String id = request.getParameter(MemberDBBean);
-// 	String MemberDBBean.get("mem_pwd");
-// 	MemberDBBean manager = MemberDBBean.getInstance();
-// 	int check = manager.userCheck(id, pwd);
-// 	MemberBean member = manager.getMember(id);
-// 	Session session  = null;
 	String id = (String)request.getParameter("mem_uid");
 	String pwd = (String)request.getParameter("mem_pwd");
 	
@@ -45,7 +37,7 @@ request.setCharacterEncoding("UTF-8");
 			}else if(check == 0){
 			%><script>
 				alert("비밀번호가 맞지 않습니다.");
-				history.back();
+				history.go(-1);
 			</script><%
 			}
 		}

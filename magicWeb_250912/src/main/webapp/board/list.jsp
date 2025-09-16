@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="magic.board.BoardDBBean"%>
 <%@page import="magic.board.BoardBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,6 +11,11 @@
 <%
 	BoardDBBean manager = BoardDBBean.getInstance();
 	ArrayList<BoardBean> boardList = manager.listBoard();
+// 	int b_id=0;
+	String b_name, b_email, b_title, b_content, b_hit;
+// 	Timestamp b_date;
+	String b_date;
+// 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <!DOCTYPE html>
 <html>
@@ -18,9 +25,7 @@
 </head>
 <body>
 
-<script>
-	
-</script>
+<script type="text/javascript" src="board.js"></script>
 	<center>
 		<h1>게시판에 등록된 글 목록 보기</h1><br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,6 +45,7 @@
 				<td width="40" align="center">글제목</td>
 				<td width="40" align="center">작성자</td>
 				<td width="40" align="center">작성일</td>
+				<td width="40" align="center">조회수</td>
 			</tr>
 			<%
 			for(int i = 0; i<boardList.size(); i++){
@@ -48,7 +54,7 @@
 		     		onmouseout ="this.style.backgroundColor='#f7f7f7'">
 					<td align="center"><%= boardList.get(i).getB_id() %></td>
 					<td align="left">
-						<a href="show.jsp?b_id=<%= boardList.get(i).getB_id()%>">
+						<a href="show.jsp?b_id=<%= boardList.get(i).getB_id() %>">
 							<%= boardList.get(i).getB_title() %>
 						</a>
 					</td>
@@ -58,7 +64,12 @@
 						</a>
 					</td>
 					<td align="center">
-							<%= boardList.get(i).getB_date() %>
+<%-- 							<%= boardList.get(i).getB_date() %> --%>
+							<%= boardList.get(i).getB_date2() %>
+<%-- 							<%= sdf.format(boardList.get(i).getB_date()) %> --%>
+					</td>
+					<td align="center">
+							<%= boardList.get(i).getB_hit() %>
 					</td>
 				</tr> 
 			<%

@@ -23,20 +23,11 @@
 				안녕하세요. <%= name %>(<%= uid %>)님
 			</tr>
 			<tr>
-			<script>
-				function deleteSession(){
-					<% 
-						session.removeAttribute(name);
-						session.invalidate();
-					%>
-					location.href="login.jsp";
-				}
-			</script>
-			<td align="center">
-				<input type="submit" value="로그아웃" onclick="deleteSession()">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="button" value="회원정보변경" onclick="location='memberUpdate.jsp'">
-			</td>
+				<td align="center">
+					<input type="submit" value="로그아웃">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" value="회원정보변경" onclick="location='memberUpdate.jsp'">
+				</td>
 			</tr>
 		</form>
 	</table>

@@ -1,4 +1,3 @@
-<%@page import="java.sql.Timestamp"%>
 <%@page import="magic.board.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,13 +8,24 @@
 <jsp:setProperty property="*" name="board"></jsp:setProperty>
 
 <%
-	//오늘날짜 추가
-	board.setB_date(new Timestamp(System.currentTimeMillis()));
 	BoardDBBean db = BoardDBBean.getInstance();
+	int re = db.editBoard(board);
 	
-	if(db.insertBoard(board) == 1){//글쓰기가 정상적으로 완료시
+	if(re == 1){
 		response.sendRedirect("list.jsp");
-	}else{//글쓰기가 실패시
-		response.sendRedirect("write.jsp");
+	} else if (re == 0){
+	%>
+		<script>
+			alert("비밀번호가 틀렸습니다.");		
+			history.go(-1);
+		</script>
+	<%
+	} else if (re == -1){
+	%>
+		<script>
+			alert("수정에 실패했습니다.");
+			history.go(-1);
+		</script>
+	<%
 	}
-%>
+	%>

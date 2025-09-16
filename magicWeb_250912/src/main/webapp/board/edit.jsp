@@ -1,15 +1,15 @@
-<%@page import="java.time.LocalDateTime"%>
-<%@page import="java.sql.Timestamp"%>
+<%@page import="magic.board.BoardBean"%>
+<%@page import="magic.board.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
 <%
-	long currentTimeMillis = System.currentTimeMillis();
-	Timestamp currentTimestamp = new Timestamp(currentTimeMillis);
+	int b_id = Integer.parseInt(request.getParameter("b_id"));
+	BoardDBBean manager = BoardDBBean.getInstance();
+	BoardBean board = manager.getBoard(b_id, false);
 %>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,30 +17,30 @@
 <script type="text/javascript" src="board.js"></script>
 </head>
 <body>
-	<center>
-		<h1>글 올리기</h1><br>
-		<form method="post" action="write_ok.jsp" name="write_frm">
+<center>
+		<h1>글 수 정 하 기</h1><br>
+		<form method="post" action="edit_ok.jsp?b_id=<%= b_id %>" name="write_frm">
 			<table>
 				<tr height="30">
 					<td width="80">작성자</td>
 					<td width="140">
 <!-- 					maxlength : 화면 단에서 데이터베이스 오류를 미리 방지 -->
-						<input type="text" name="b_name" size="10" maxlength="20">
+						<input type="text" name="b_name" size="10" maxlength="20" value="<%= board.getB_name()%>">
 					</td>
 					<td width="80">이메일</td>
 					<td width="240">
-						<input type="text" name="b_email" size="24" maxlength="50">
+						<input type="text" name="b_email" size="24" maxlength="50" value="<%= board.getB_email()%>">
 					</td>
 				</tr>
 				<tr height="30">
 					<td width="80">글제목</td>
 					<td width="460" colspan="3">
-						<input type="text" name="b_title" size="55" maxlength="80">
+						<input type="text" name="b_title" size="55" maxlength="80" value="<%= board.getB_title()%>">
 					</td>
 				</tr>
 				<tr height="30">
 					<td colspan="4">
-						<textarea name="b_content" cols="65" rows="10" style="﻿overflow-y:scroll; overflow-x:hidden;"></textarea>
+						<textarea name="b_content" cols="65" rows="10" style="﻿overflow-y:scroll; overflow-x:hidden;"><%= board.getB_content()%></textarea>
 					</td>
 				</tr>
 				<tr height="30">
@@ -51,7 +51,7 @@
 				</tr>
 				<tr height="50" align="center">
 					<td colspan="4">
-						<input type="submit" value="글쓰기" onclick="check_ok()">&nbsp;
+						<input type="submit" value="글수정" onclick="check_ok()">&nbsp;
 						<input type="reset" value="다시 작성">
 						<input type="button" value="글목록" onclick="location.href='list.jsp'">&nbsp;
 					</td>

@@ -47,22 +47,22 @@ function check_ok(){
 	
 
 function update_check_ok(){
-	if(main_frm.mem_pwd.value.length == 0) {
+	if(modi_frm.mem_pwd.value.length == 0) {
 			alert("패스워드는 반드시 입력해야 합니다.");
-			main_frm.mem_pwd.focus();
+			modi_frm.mem_pwd.focus();
 			return;	
 	}
-	if(main_frm.mem_pwd.value != main_frm.mem_pwd2.value) {
+	if(modi_frm.mem_pwd.value != modi_frm.mem_pwd2.value) {
 			alert("패스워드가 일치하지 않습니다.");
-			main_frm.mem_pwd2.focus();
+			modi_frm.mem_pwd2.focus();
 			return;	
 	}
-	if(main_frm.mem_email.value.length == 0) {
+	if(modi_frm.mem_email.value.length == 0) {
 			alert("Email을 써주세요.");
-			main_frm.mem_email.focus();
+			modi_frm.mem_email.focus();
 			return;	
 	}
-	main_frm.submit();
+	document.modi_frm.submit();
 }	
 	
 	

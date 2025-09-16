@@ -19,6 +19,21 @@ function check_ok(){
 		write_frm.b_content.focus;
 		return;
 	}
+	if(write_frm.b_pwd.value == ""){
+		alert("비밀번호를 써주세요");
+		write_frm.b_pwd.focus;
+		return;
+	}
 
 	document.write_frm.submit();
+};
+
+
+function delete_ok(){
+	if(d_frm.b_pwd.value == ""){
+			alert("비밀번호를 써주세요");
+			d_frm.b_pwd.focus;
+			return;
+	}
+	document.d_frm.submit();
 };

@@ -11,6 +11,7 @@ request.setCharacterEncoding("UTF-8");
 	String uid = (String) session.getAttribute("mem_uid");
 	MemberDBBean manager = MemberDBBean.getInstance();
 	MemberBean member = manager.getMember(uid);
+	System.out.println("memberUpdate : member : " + member);
 %>
 <!DOCTYPE html>
 <html>
