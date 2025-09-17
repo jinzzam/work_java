@@ -6,7 +6,10 @@
 	request.setCharacterEncoding("UTF-8");
 %>
 <%
+	String pageNum=request.getParameter("pageNum");
+	
 	int b_id = Integer.parseInt(request.getParameter("b_id"));
+	
 	BoardDBBean manager = BoardDBBean.getInstance();
 	BoardBean board = manager.getBoard(b_id, false);
 %>
@@ -19,7 +22,7 @@
 <body>
 <center>
 		<h1>글 수 정 하 기</h1><br>
-		<form method="post" action="edit_ok.jsp?b_id=<%= b_id %>" name="write_frm">
+		<form method="post" action="'edit_ok.jsp?b_id=<%= b_id %>&pageNum=<%= pageNum %>'" name="write_frm">
 			<table>
 				<tr height="30">
 					<td width="80">작성자</td>
@@ -53,7 +56,7 @@
 					<td colspan="4">
 						<input type="submit" value="글수정" onclick="check_ok()">&nbsp;
 						<input type="reset" value="다시 작성">
-						<input type="button" value="글목록" onclick="location.href='list.jsp'">&nbsp;
+						<input type="button" value="글목록" onclick="location.href='list.jsp?pageNum=<%= pageNum %>'">&nbsp;
 					</td>
 				</tr>
 			</table>

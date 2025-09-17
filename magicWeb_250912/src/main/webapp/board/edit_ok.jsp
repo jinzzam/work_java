@@ -8,11 +8,15 @@
 <jsp:setProperty property="*" name="board"></jsp:setProperty>
 
 <%
+	String pageNum=request.getParameter("pageNum");
+	
 	BoardDBBean db = BoardDBBean.getInstance();
 	int re = db.editBoard(board);
 	
 	if(re == 1){
-		response.sendRedirect("list.jsp");
+		//비밀번호 일치로 글목록 이동
+// 		response.sendRedirect("list.jsp");
+		response.sendRedirect("list.jsp?pageNum="+pageNum);
 	} else if (re == 0){
 	%>
 		<script>

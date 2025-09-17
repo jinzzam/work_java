@@ -3,7 +3,9 @@
 <%@page import="magic.board.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -12,6 +14,8 @@
 </head>
 <body>
 <%
+	String pageNum=request.getParameter("pageNum");
+	
 	int b_id = Integer.parseInt(request.getParameter("b_id"));
 	BoardDBBean manager = BoardDBBean.getInstance();
 	BoardBean board = manager.getBoard(b_id, true);
@@ -33,19 +37,34 @@
 				<td width="20" align="center">작성일</td>
 				<td width="40" align="center"><%= sdf.format(board.getB_date())%></td>
 			</tr>
-			<tr height="25">
+			<tr height="25" align="center">
+				<td width="100">파&nbsp;&nbsp;일</td>
+				<td colspan="3">
+				<%
+					if(board.getB_fname() != null){
+						%>
+							<img src="./images/zip.gif">
+							<a href="../upload/<%= board.getB_fname() %>">
+								원본 파일 : <%= board.getB_fname() %>
+							</a>
+						<%
+					}
+				%>
+				</td>
+			</tr>
+			<tr height="25" colspan="2">
 				<td width="40" align="center">글제목</td>
 				<td width="80" align="left"><%= board.getB_title()%></td>
 			</tr>
-			<tr height="25">
+			<tr height="25" colspan="2">
 				<td width="40" align="center">글내용</td>
 				<td width="80" align="left"><%= board.getB_content()%></td>
 			</tr>
 			<tr height="25" align="right" colspan="4">
-				<td></td>
-				<td width="40" align="right"><input type="button" value="글수정" onclick="location.href='edit.jsp?b_id=<%= board.getB_id()%>'"></td>
-				<td width="40" align="right"><input type="button" value="글삭제" onclick="location.href='delete.jsp?b_id=<%= board.getB_id()%>'"></td>
-				<td width="40" align="right"><input type="button" value="글목록" onclick="location.href='list.jsp'"></td>
+				<td width="40" align="right"><input type="button" value="글수정" onclick="location.href='edit.jsp?b_id=<%= board.getB_id()%>&pageNum=<%= pageNum %>'"></td>
+				<td width="40" align="right"><input type="button" value="글삭제" onclick="location.href='delete.jsp?b_id=<%= board.getB_id()%>&pageNum=<%= pageNum %>'"></td>
+				<td width="40" align="right"><input type="button" value="답변글" onclick="location.href='write.jsp?b_id=<%= board.getB_id()%>&pageNum=<%= pageNum %>'"></td>
+				<td width="40" align="right"><input type="button" value="글목록" onclick="location.href='list.jsp?pageNum=<%= pageNum %>'"></td>
 			</tr>
 		</table>
 	</center>
