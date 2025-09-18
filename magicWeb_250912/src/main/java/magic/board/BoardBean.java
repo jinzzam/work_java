@@ -38,9 +38,9 @@ public class BoardBean {
 		//페이지 번호 나열하기
 		for (int i = startPage; i < (startPage + limit); i++) {
 			if(i == pageNum) {
-				str += "["+i+"]&nbsp;&nbsp;";
+				str += "<a href='list.jsp?pageNum="+i+"'>"+"{"+i+"}</a>&nbsp;&nbsp;";
 			}else {
-				str += "<a href='list.jsp?pageNum"+i+"'>"+"["+i+"]</a>&nbsp;&nbsp;";
+				str += "<a href='list.jsp?pageNum="+i+"'>"+"["+i+"]</a>&nbsp;&nbsp;";
 			}
 			if(i >= pageCount) break;
 		}

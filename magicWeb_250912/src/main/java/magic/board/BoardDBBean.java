@@ -50,7 +50,7 @@ public class BoardDBBean {
 			pstmt = conn.prepareStatement(selectIdSql);
 			rs = pstmt.executeQuery(selectIdSql);
 			if(rs.next()) {
-				index = rs.getInt(1);
+				index = rs.getInt(1) + 1;
 			}
 			//1. 글번호를 가지고 오는 경우(답변)
 //			2. 글번호를 가지고 오지 않는 경우(신규글)
@@ -71,7 +71,7 @@ public class BoardDBBean {
 			}
 			
 			pstmt = conn.prepareStatement(insertSql);
-			pstmt.setInt(1, index+1);
+			pstmt.setInt(1, index);
 			pstmt.setString(2, board.getB_name());
 			pstmt.setString(3, board.getB_email());
 			pstmt.setString(4, board.getB_title());

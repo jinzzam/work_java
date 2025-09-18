@@ -98,7 +98,7 @@
 						if(b_level > 0){//답변글
 							for(int j=0; j<b_level; j++){//for 기준으로 들여쓰기를 얼마만큼 할것인지 정함
 								%>
-									&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;
 								<%
 							}
 // 							들여쓰기가 적용된 시점->이미지 추가
@@ -131,7 +131,7 @@
 			%>
 		</table>
 <%-- 		<%= BoardBean.pageNumer(4) %> --%>
-		<%= BoardBean.pageNumber(4)%>
+		<%= BoardBean.pageNumber(5)%>
 	</center>
 </body>
 </html>
