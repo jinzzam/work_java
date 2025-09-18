@@ -8,7 +8,7 @@
 <%
 	String pageNum=request.getParameter("pageNum");
 	int b_id=0, b_ref=0, b_step=0, b_level=0;
-	String b_title="", b_email="";
+	String b_title="", b_email="", b_name="";
 	
 	//답변글(show.jsp 에서 글번호를 가지고 옴)
 	if(request.getParameter("b_id") != null){	//casting 오류를 막기 위함
@@ -26,6 +26,7 @@
 		b_level = board.getB_level();
 		b_title = board.getB_title();
 		b_email = board.getB_email();
+		b_name = board.getB_name();
 	}
 %>
 <html>
@@ -42,6 +43,7 @@
 			<input type="hidden" name="b_ref" value="<%= b_ref %>">
 			<input type="hidden" name="b_step" value="<%= b_step %>">
 			<input type="hidden" name="b_level" value="<%= b_level %>">
+			<input type="hidden" name="b_name" value="<%= b_name %>">
 			<table>
 				<tr height="30">
 					<td width="80">작성자</td>

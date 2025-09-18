@@ -11,11 +11,11 @@
 	String pageNum=request.getParameter("pageNum");
 	
 	int b_id=0, b_ref=0, b_step=0, b_level=0;
-	String b_title="", b_email="";
+	String b_title="", b_email="", b_name="";
 	
 	//답변글(show.jsp 에서 글번호를 가지고 옴)
 	if(request.getParameter("b_id") != null){	//casting 오류를 막기 위함
-		b_id = Integer.parseInt(request.getParameter("b_id"));	
+		b_id = Integer.parseInt(request.getParameter("b_id")) ;	
 		b_ref = b_id;
 	}
 	
@@ -29,6 +29,7 @@
 		b_level = board.getB_level();
 		b_title = board.getB_title();
 		b_email = board.getB_email();
+		b_name = board.getB_name();
 	}
 %>
 <!-- select b_id, b_name, b_email, b_title, b_content, b_date, b_hit, b_pwd, b_ip from boardT where b_id=? -->
@@ -48,12 +49,13 @@
 			<input type="hidden" name="b_ref" value="<%= b_ref %>">
 			<input type="hidden" name="b_step" value="<%= b_step %>">
 			<input type="hidden" name="b_level" value="<%= b_level %>">
+			<input type="hidden" name="b_name" value="<%= b_name %>">
 			<table>
 				<tr height="30">
 					<td width="80">작성자</td>
 					<td width="140">
 <!-- 					maxlength : 화면 단에서 데이터베이스 오류를 미리 방지 -->
-						<input type="text" name="b_name" size="10" maxlength="20" value="<%= b_id %>">
+						<input type="text" name="b_name" size="10" maxlength="20" value="<%= b_name %>">
 					</td>
 					<td width="80">이메일</td>
 					<td width="240">

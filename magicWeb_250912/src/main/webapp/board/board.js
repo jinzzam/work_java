@@ -4,7 +4,7 @@
 
 function check_ok(){
 //	if(write_frm.b_name.value.length == 0){
-	if(write_frm.b_name.value == ""){
+	if(write_frm.b_name.value.length == 0){
 		alert("작성자 이름을 써주세요");
 		write_frm.b_name.focus;
 		return;

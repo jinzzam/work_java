@@ -22,7 +22,7 @@
 // 	ArrayList<BoardBean> boardList = db.listBoard();
 	ArrayList<BoardBean> boardList = db.listBoard(pageNum);
 // 	int b_id=0, b_hit=0;
-	int b_id=0, b_hit=0, b_level=0, b_fsize=0;
+	int b_id=1, b_hit=0, b_level=0, b_fsize=0;
 	String b_name, b_email, b_title, b_content;
 // 	Timestamp b_date;
 	String b_date;

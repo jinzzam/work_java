@@ -27,19 +27,20 @@
 		<table border="1" width="800" cellspacing="0">
 			<tr height="25">
 				<td width="20" align="center">글번호</td>
-				<td width="40" align="center"><%= board.getB_id()%></td>
+				<td width="40" align="center"><%= board.getB_id() %></td>
 				<td width="20" align="center">조회수</td>
-				<td width="40" align="center"><%= board.getB_hit()%></td>
+				<td width="40" align="center"><%= board.getB_hit() %></td>
 			</tr>
 			<tr height="25">
 				<td width="20" align="center">작성자</td>
-				<td width="40" align="center"><%= board.getB_name()%></td>
+				<td width="40" align="center"><%= board.getB_name() %></td>
 				<td width="20" align="center">작성일</td>
-				<td width="40" align="center"><%= sdf.format(board.getB_date())%></td>
+				<td width="40" align="center"><%= sdf.format(board.getB_date()) %></td>
 			</tr>
 			<tr height="25" align="center">
 				<td width="100">파&nbsp;&nbsp;일</td>
 				<td colspan="3">
+				<%-- 
 				<%
 					if(board.getB_fname() != null){
 						%>
@@ -49,6 +50,10 @@
 							</a>
 						<%
 					}
+				%>
+				--%>
+				<%
+					out.print("<p>첨부파일"+"<a href='fileDownload.jsp?fileN="+board.getB_id()+"'>"+board.getB_rfname()+"</a>"+"</p>");
 				%>
 				</td>
 			</tr>

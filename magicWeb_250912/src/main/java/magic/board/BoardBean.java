@@ -18,6 +18,7 @@ public class BoardBean {
 	private int b_level = 0;
 	
 	private String b_fname;	
+	private String b_rfname;	
 	private int b_fsize;
 	
 	public static int pageSize = 10;	//한 페이지당 10개 출력물
@@ -38,7 +39,7 @@ public class BoardBean {
 		//페이지 번호 나열하기
 		for (int i = startPage; i < (startPage + limit); i++) {
 			if(i == pageNum) {
-				str += "<a href='list.jsp?pageNum="+i+"'>"+"{"+i+"}</a>&nbsp;&nbsp;";
+				str += "<a href='list.jsp?pageNum="+i+"'>"+"{"+i+"}</a>&nbsp;&nbsp;";	//현제 페이지
 			}else {
 				str += "<a href='list.jsp?pageNum="+i+"'>"+"["+i+"]</a>&nbsp;&nbsp;";
 			}
@@ -53,6 +54,14 @@ public class BoardBean {
 		return str;
 	}
 	
+	public String getB_rfname() {
+		return b_rfname;
+	}
+
+	public void setB_rfname(String b_rfname) {
+		this.b_rfname = b_rfname;
+	}
+
 	public String getB_fname() {
 		return b_fname;
 	}
