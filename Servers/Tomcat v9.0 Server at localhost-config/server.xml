@@ -170,7 +170,7 @@
       <Context docBase="magicWeb_250912" path="/magicWeb_250912" reloadable="true" source="org.eclipse.jst.jee.server:magicWeb_250912">
       <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
       </Context>
-      <Context docBase="el_250918" path="/el_250918" reloadable="true" source="org.eclipse.jst.jee.server:el_250918"/><Context docBase="jstl_250918" path="/jstl_250918" reloadable="true" source="org.eclipse.jst.jee.server:jstl_250918"/></Host>
+      <Context docBase="el_250918" path="/el_250918" reloadable="true" source="org.eclipse.jst.jee.server:el_250918"/><Context docBase="jstl_250918" path="/jstl_250918" reloadable="true" source="org.eclipse.jst.jee.server:jstl_250918"/><Context docBase="ajax_250918" path="/ajax_250918" reloadable="true" source="org.eclipse.jst.jee.server:ajax_250918"/></Host>
     </Engine>
   </Service>
 </Server>
