@@ -164,13 +164,17 @@
 
       <Context docBase="servlet_250905" path="/servlet_250905" reloadable="true" source="org.eclipse.jst.jee.server:servlet_250905"/>
       <Context docBase="jsp_250905" path="/jsp_250905" reloadable="true" source="org.eclipse.jst.jee.server:jsp_250905">
-      <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
-      <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/mysql" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdb" username="bts"/>
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
+      	<Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/mysql" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdb" username="bts"/>
       </Context>
       <Context docBase="magicWeb_250912" path="/magicWeb_250912" reloadable="true" source="org.eclipse.jst.jee.server:magicWeb_250912">
-      <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
       </Context>
-      <Context docBase="el_250918" path="/el_250918" reloadable="true" source="org.eclipse.jst.jee.server:el_250918"/><Context docBase="jstl_250918" path="/jstl_250918" reloadable="true" source="org.eclipse.jst.jee.server:jstl_250918"/><Context docBase="ajax_250918" path="/ajax_250918" reloadable="true" source="org.eclipse.jst.jee.server:ajax_250918"/><Context docBase="best_coder" path="/best_coder" reloadable="true" source="org.eclipse.jst.jee.server:best_coder"/></Host>
+      <Context docBase="el_250918" path="/el_250918" reloadable="true" source="org.eclipse.jst.jee.server:el_250918"/><Context docBase="jstl_250918" path="/jstl_250918" reloadable="true" source="org.eclipse.jst.jee.server:jstl_250918"/><Context docBase="ajax_250918" path="/ajax_250918" reloadable="true" source="org.eclipse.jst.jee.server:ajax_250918"/>
+      <Context docBase="best_coder" path="/best_coder" reloadable="true" source="org.eclipse.jst.jee.server:best_coder">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>
